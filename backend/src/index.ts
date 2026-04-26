@@ -6,6 +6,7 @@ import { expressMiddleware } from '@apollo/server/express4';
 import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 import { json } from 'body-parser';
+import { ensureDatabaseIsReady } from './ensureDatabaseIsReady';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -28,6 +29,8 @@ app.get('/health', (_req, res) => {
 });
 
 async function startServer() {
+  ensureDatabaseIsReady();
+
   const server = new ApolloServer({
     typeDefs,
     resolvers,

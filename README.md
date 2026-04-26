@@ -162,7 +162,9 @@ Required Render environment variables:
 - `FRONTEND_URL`: your Vercel frontend URL
 - `NODE_ENV`: `production`
 
-If the API throws `The table public.Release does not exist in the current database`, the backend is connected to the database but migrations were not applied. Redeploy the Render service after confirming the build command includes `npm run build:render`.
+The backend applies `prisma migrate deploy` during startup, so the Render service can create the `Release` table even when the database is only reachable at runtime.
+
+If the API already threw `The table public.Release does not exist in the current database`, trigger a fresh Render redeploy after pulling this change so the service boots once with the new startup migration step.
 
 ### Frontend
 
