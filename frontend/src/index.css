@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  --page-background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 48%, #f8fafc 100%);
+  --text-primary: #0f172a;
+  --surface-border: rgba(148, 163, 184, 0.28);
+  --selection-color: rgba(125, 211, 252, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--page-background);
+  color: var(--text-primary);
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--selection-color);
+}
+
+::-webkit-scrollbar { 
+  width: 6px; 
+}
+::-webkit-scrollbar-track { 
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb { 
+  background: #94a3b8; 
+  border-radius: 10px; 
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator { 
+  opacity: 0.7; 
+}
+
+.material-symbols-outlined { 
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1; 
+}
