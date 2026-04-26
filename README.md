@@ -144,11 +144,25 @@ Typical production build commands:
 
 ```bash
 npm ci
-npx prisma generate
-npm run build
-npx prisma migrate deploy
+npm run build:render
 npm start
 ```
+
+### Render backend settings
+
+Use these values for your Render Web Service:
+
+- Root Directory: `backend`
+- Build Command: `npm ci && npm run build:render`
+- Start Command: `npm start`
+
+Required Render environment variables:
+
+- `DATABASE_URL`: full Render Postgres Internal Database URL
+- `FRONTEND_URL`: your Vercel frontend URL
+- `NODE_ENV`: `production`
+
+If the API throws `The table public.Release does not exist in the current database`, the backend is connected to the database but migrations were not applied. Redeploy the Render service after confirming the build command includes `npm run build:render`.
 
 ### Frontend
 
